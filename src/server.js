@@ -2,7 +2,7 @@
 const express = require('express');
 const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
-require('dotenv').config()
+require('dotenv').config();
 
 // --------------------------------------------------------------
 const app = express();
