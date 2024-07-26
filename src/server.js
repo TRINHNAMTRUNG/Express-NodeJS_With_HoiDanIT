@@ -2,7 +2,7 @@
 const express = require('express');
 const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
-const mysql = require('mysql2');
+const connection = require("./config/database");
 require('dotenv').config();
 
 // --------------------------------------------------------------
@@ -17,15 +17,6 @@ configViewEngine(app);
 
 // config routes
 app.use("/", webRoutes);
-
-// get the client
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3307,
-    user: 'root',
-    password: '123456',
-    database: 'hoidanit'
-});
 
 // simple query
 connection.query(
