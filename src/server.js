@@ -18,14 +18,7 @@ configViewEngine(app);
 // config routes
 app.use("/", webRoutes);
 
-// simple query
-connection.query(
-    'SELECT * from Users',
-    function (err, results, fields) {
-        console.log(">>>> res ",results); // results contains rows returned by server
-        console.log(">>>>fields ",fields); // fields contains extra meta data about results, if available
-    }
-);
+
 
 /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
 app.listen(port, hostname, () => {
