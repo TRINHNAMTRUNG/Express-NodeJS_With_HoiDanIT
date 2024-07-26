@@ -26,3 +26,33 @@ body {
     background-color: #04AA6D;
     color: white;
 }
+
+.form-add-new{
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 50px;
+}
+
+
+.form-add-new .input-group{
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.input-group input {
+    flex: 1; /* Đặt input chiếm hết phần còn lại */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group label {
+    width: 100px; /* Đặt một chiều rộng cố định cho label */
+    text-align: left; /* Căn phải để label gần với input */
+}
+
+.form-add-new .button{
+    cursor: pointer;
+}
