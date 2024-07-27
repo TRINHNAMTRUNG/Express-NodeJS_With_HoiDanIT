@@ -15,9 +15,14 @@ const hostname = process.env.HOST_NAME;
 // config template engine
 configViewEngine(app);
 
+// config req.doby
+//chuyển đổi phần body của req từ json sang object js. Middleware này sẽ phân tích cú pháp các request có header Content-Type là application/json. Nếu request body là JSON hợp lệ, nó sẽ chuyển đổi thành đối tượng JavaScript và gán cho req.body.
+app.use(express.json());
+//chuyển đổi phần body của req từ urlencoded sang object js. Middleware này sẽ phân tích cú pháp các request có header Content-Type là application/x-www-form-urlencoded.
+app.use(express.urlencoded({extended: true}));
+
 // config routes
 app.use("/", webRoutes);
-
 
 
 /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/

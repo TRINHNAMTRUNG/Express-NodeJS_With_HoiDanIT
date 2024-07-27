@@ -15,6 +15,11 @@ const getAbc = (req, res) => {
     );
 }
 
+const postCreateUser = (req, res)=> {
+    console.log("checkk body: ", req.body);
+    res.send("create a new user");
+}
+
 module.exports = {
-    getHomePage, getAbc
+    getHomePage, getAbc, postCreateUser
 }

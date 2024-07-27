@@ -49,7 +49,7 @@ body {
 }
 
 .input-group label {
-    width: 100px; /* Đặt một chiều rộng cố định cho label */
+    width: 60px; /* Đặt một chiều rộng cố định cho label */
     text-align: left; /* Căn phải để label gần với input */
 }
 
