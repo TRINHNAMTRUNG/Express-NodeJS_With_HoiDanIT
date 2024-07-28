@@ -10,7 +10,6 @@
 
 <body>
     <div class="container">
-        <%= JSON.stringify(listUser) %>
         <div class="topnav">
             <a class="active" href="/">Home</a>
             <a href="/create">Create User</a>
@@ -28,26 +27,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Peter</td>
-                        <td>Griffin</td>
-                        <td>$100</td>
-                        <td>$100</td>
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lois</td>
-                        <td>Griffin</td>
-                        <td>$150</td>
-                        <td>$150</td>
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
+                    <% listUser.forEach((element, index)=> { %>
+                        <tr>
+                            <td><%= element.id %></td>
+                            <td><%= element.email %></td>
+                            <td><%= element.name %></td>
+                            <td><%= element.city %></td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+
+
                 </tbody>
             </table>
         </div>
