@@ -10,6 +10,7 @@
 
 <body>
     <div class="container">
+        <%= JSON.stringify(listUser) %>
         <div class="topnav">
             <a class="active" href="/">Home</a>
             <a href="/create">Create User</a>
@@ -23,6 +24,7 @@
                         <th>Email</th>
                         <th>Name</th>
                         <th>City</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +33,20 @@
                         <td>Griffin</td>
                         <td>$100</td>
                         <td>$100</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>Lois</td>
                         <td>Griffin</td>
                         <td>$150</td>
                         <td>$150</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
