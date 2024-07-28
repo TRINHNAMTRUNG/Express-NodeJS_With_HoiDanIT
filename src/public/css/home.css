@@ -5,7 +5,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #242A2F;
 }
 
 .topnav a {
@@ -27,7 +27,7 @@ body {
     color: white;
 }
 
-.form-add-new{
+.form-add-new {
     width: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -35,24 +35,68 @@ body {
 }
 
 
-.form-add-new .input-group{
+.form-add-new .input-group {
     padding: 10px;
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
 .input-group input {
-    flex: 1; /* Đặt input chiếm hết phần còn lại */
+    flex: 1;
+    /* Đặt input chiếm hết phần còn lại */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .input-group label {
-    width: 60px; /* Đặt một chiều rộng cố định cho label */
-    text-align: left; /* Căn phải để label gần với input */
+    width: 60px;
+    /* Đặt một chiều rộng cố định cho label */
+    text-align: left;
+    /* Căn phải để label gần với input */
 }
 
-.form-add-new .button{
+.form-add-new .button {
     cursor: pointer;
 }
+
+.table-container {
+    padding: 20px;
+}
+.title{
+    margin: 15px;
+    text-align: center;
+}
+
+/*TABLE*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr, td, th{
+    border: 1px solid #ccc;
+}
+thead{
+    background-color: #3498DB;
+}
+tbody tr:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
