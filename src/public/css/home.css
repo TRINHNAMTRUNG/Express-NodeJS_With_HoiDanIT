@@ -107,4 +107,7 @@ button a {
     display: none;
 }
 
+.gr-btn{
+    display: flex;
+}
 

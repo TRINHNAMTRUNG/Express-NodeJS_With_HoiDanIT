@@ -33,11 +33,13 @@
                             <td><%= element.email %></td>
                             <td><%= element.name %></td>
                             <td><%= element.city %></td>
-                            <td>
+                            <td class="gr-btn">
                                 <button>
                                     <a href="/update/<%= element.id %>">Edit</a>
                                 </button>
-                                <button>Delete</button>
+                                <form action="/delete-user/<%= element.id %>" method="POST">
+                                    <button>Delete</button>
+                                </form>
                             </td>
                         </tr>
                     <% }); %>
