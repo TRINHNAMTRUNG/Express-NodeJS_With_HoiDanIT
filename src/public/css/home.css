@@ -97,5 +97,9 @@ td button{
     margin-right: 15px;
     cursor: pointer;
 }
+button a {
+    text-decoration: none;
+    color: black;
+}
 
 
