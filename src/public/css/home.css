@@ -35,7 +35,7 @@ body {
 }
 
 
-.form-add-new .input-group {
+.input-group {
     padding: 10px;
     display: flex;
     gap: 10px;
@@ -100,6 +100,11 @@ td button{
 button a {
     text-decoration: none;
     color: black;
+}
+
+.d-none{
+    display: flex;
+    display: none;
 }
 
 

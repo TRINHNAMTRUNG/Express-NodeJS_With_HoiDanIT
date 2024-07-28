@@ -1,5 +1,5 @@
 const connection = require("../config/database");
-const {getAllUsers, createUser} = require("../services/CRUDService");
+const {getAllUsers, createUser, getUserByID, updateUserByID} = require("../services/CRUDService");
 const getHomePage = async (req, res) => {
     let results = await getAllUsers();
     return res.render("home.ejs", {listUser: results});
@@ -8,21 +8,10 @@ const getHomePage = async (req, res) => {
 const getCreatePage = (req, res)=> {
     res.render('create.ejs');
 }
-const getUpdatePage = (req, res)=> {
-    res.render('edit.ejs');
-}
-
-const getAbc = (req, res) => {
-    // simple query
-    connection.query(
-        'SELECT * from Users',
-        function (err, results, fields) {
-            console.log(">>>> res ", results); // results contains rows returned by server
-            console.log(">>>>fields ", fields); // fields contains extra meta data about results, if available
-            res.send(JSON.stringify(results));
-        }
-    );
-    
+const getUpdatePage = async (req, res)=> {
+    const idUser = req.params.id;
+    const user = await getUserByID(idUser);
+    res.render('edit.ejs', {user: user});
 }
 
 const postCreateUser = async (req, res) => {
@@ -34,8 +23,18 @@ const postCreateUser = async (req, res) => {
     res.send("create a new user");
 }
 
+const postUpdateUser = async (req, res)=> {
+    const data = req.body;
+    let name = data.name;
+    let email = data.email;
+    let city = data.city;
+    let id = data.id;
+    console.log("update ngay:",name, email, city, id)
+    await updateUserByID(name, email, city, id);
+    res.redirect("/")
+}
 
 module.exports = {
-    getHomePage, getAbc, postCreateUser,
-    getCreatePage, getUpdatePage
+    getHomePage, postCreateUser,
+    getCreatePage, getUpdatePage, postUpdateUser
 }
