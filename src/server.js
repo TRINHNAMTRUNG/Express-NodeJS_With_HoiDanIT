@@ -5,7 +5,7 @@ const webRoutes = require("./routes/web");
 const favicon = require('serve-favicon');
 const path = require("path");
 const connection = require("./config/database");
-const mongoose = require("mongoose");
+const Kitten = require("./models/Kitten");
 require('dotenv').config();
 
 // --------------------------------------------------------------
@@ -30,11 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 // config routes
 app.use("/", webRoutes);
 
-const kittySchema = new mongoose.Schema({
-    name: String
-});
-const Kitten = mongoose.model('Kitten', kittySchema);
-const cat = new Kitten({ name: 'Hoi Dan It Cat' });
+const cat = new Kitten({ name: 'Hoi Dan It Model' });
 cat.save();
 
 (async () => {
