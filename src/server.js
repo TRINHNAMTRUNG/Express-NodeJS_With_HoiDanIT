@@ -24,15 +24,24 @@ configViewEngine(app);
 //chuyển đổi phần body của req từ json sang object js. Middleware này sẽ phân tích cú pháp các request có header Content-Type là application/json. Nếu request body là JSON hợp lệ, nó sẽ chuyển đổi thành đối tượng JavaScript và gán cho req.body.
 app.use(express.json());
 //chuyển đổi phần body của req từ urlencoded sang object js. Middleware này sẽ phân tích cú pháp các request có header Content-Type là application/x-www-form-urlencoded.
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // config routes
 app.use("/", webRoutes);
 
-// test connection
-connection();
 
-/*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
-app.listen(port, hostname, () => {
-    console.log(`Example app listening on port ${port}`);
-})
+
+(async () => {
+    // test connection
+    try {
+        await connection();
+        /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
+        app.listen(port, hostname, () => {
+            console.log(`Example app listening on port ${port}`);
+        })
+    } catch (error) {
+        console.log(">>> BACKEND ZERO APP ERROR CONNECT TO DBS: ", error);
+    }
+
+})();
+
