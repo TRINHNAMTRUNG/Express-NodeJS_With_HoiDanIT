@@ -4,6 +4,7 @@ const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
 const favicon = require('serve-favicon');
 const path = require("path");
+const connection = require("./config/database");
 require('dotenv').config();
 
 // --------------------------------------------------------------
@@ -28,6 +29,8 @@ app.use(express.urlencoded({extended: true}));
 // config routes
 app.use("/", webRoutes);
 
+// test connection
+connection();
 
 /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
 app.listen(port, hostname, () => {
