@@ -11,7 +11,7 @@ const getCreatePage = (req, res) => {
 }
 const getUpdatePage = async (req, res) => {
     const idUser = req.params.id;
-    const user = await getUserByID(idUser);
+    const user = await User.findById(idUser);
     res.render('edit.ejs', { user: user });
 }
 
@@ -36,7 +36,8 @@ const postUpdateUser = async (req, res) => {
     let city = data.city;
     let id = data.id;
     console.log("update ngay:", name, email, city, id)
-    await updateUserByID(name, email, city, id);
+    // await updateUserByID(name, email, city, id);
+    await User.updateOne({ id: id }, { name: name, email: email, city: city });
     res.redirect("/");
 }
 const postDeleteUser = async (req, res) => {
