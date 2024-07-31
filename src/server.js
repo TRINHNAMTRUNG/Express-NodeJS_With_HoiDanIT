@@ -5,7 +5,6 @@ const webRoutes = require("./routes/web");
 const favicon = require('serve-favicon');
 const path = require("path");
 const connection = require("./config/database");
-const Kitten = require("./models/Kitten");
 require('dotenv').config();
 
 // --------------------------------------------------------------
@@ -29,9 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // config routes
 app.use("/", webRoutes);
-
-const cat = new Kitten({ name: 'Hoi Dan It Model' });
-cat.save();
 
 (async () => {
     // test connection
