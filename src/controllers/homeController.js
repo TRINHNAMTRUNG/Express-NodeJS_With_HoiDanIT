@@ -38,7 +38,7 @@ const postUpdateUser = async (req, res) => {
     let id = data.id;
     console.log("update ngay:", name, email, city, id)
     // await updateUserByID(name, email, city, id);
-    await User.updateOne({ id: id }, { name: name, email: email, city: city });
+    await User.updateOne({ _id: id }, { name: name, email: email, city: city });
     res.redirect("/");
 }
 const postDeleteUser = async (req, res) => {
@@ -48,7 +48,7 @@ const postDeleteUser = async (req, res) => {
 }
 const postRemoveUser = async (req, res) => {
     const userId = req.body.id;
-    await User.deleteOne({ id: userId });;
+    await User.deleteOne({ _id: userId });;
     res.redirect("/");
 }
 

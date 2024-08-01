@@ -34,7 +34,7 @@ const putCreateUserApi = async (req, res) => {
     let id = data.id;
     console.log("update ngay:", name, email, city, id)
     // await updateUserByID(name, email, city, id);
-    let user = await User.updateOne({ id: id }, { name: name, email: email, city: city });
+    let user = await User.updateOne({ _id: id }, { name: name, email: email, city: city });
     return res.status(200).json(
         {
             EC: 0,
@@ -42,8 +42,19 @@ const putCreateUserApi = async (req, res) => {
         }
     );
 }
+const deleteUserApi = async (req, res) => {
+    const userId = req.body.id;
+    console.log(userId);
+    let results = await User.deleteOne({ _id: userId });
+    return res.status(200).json(
+        {
+            EC: 0,
+            data: results
+        }
+    );
+}
 
 module.exports = {
-    getUserApi, postCreateUserApi, putCreateUserApi
+    getUserApi, postCreateUserApi, putCreateUserApi, deleteUserApi
 }
 

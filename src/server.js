@@ -6,6 +6,7 @@ const apiRoutes = require("./routes/api");
 const favicon = require('serve-favicon');
 const path = require("path");
 const connection = require("./config/database");
+const fileUpload = require('express-fileupload');
 require('dotenv').config();
 
 // --------------------------------------------------------------
@@ -14,6 +15,9 @@ const app = express();
 // Thiết lập các biến môi trường trong env, giúp tái sử dụng biến và tiện lợi cho thay đổi giá trị các biến môi trường tại một nơi
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
+
+// config fileupload
+app.use(fileUpload());
 
 // Cấu hình middleware favicon
 app.use(favicon(path.join(__dirname, 'public', 'images', 'sharp.ico')));
