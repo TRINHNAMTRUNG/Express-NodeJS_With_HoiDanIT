@@ -57,7 +57,19 @@ const updateCustomerService = async (customerUpdate) => {
         return null;
     }
 }
+const deleteCustomerService = async (id) => {
+    try {
+        //deleteById is static method in mongoose-delete. What is static method. 
+        // with static method: model.staticMethod()
+        // with non-static method: instance.method()
+        let results = await Customer.deleteById({ _id: id });
+        return results;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
 module.exports = {
     createCustomerService, createArrayCustomerService, getAllCustomersService,
-    updateCustomerService
+    updateCustomerService, deleteCustomerService
 }
