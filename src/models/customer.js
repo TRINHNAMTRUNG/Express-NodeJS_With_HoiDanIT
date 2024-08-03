@@ -12,7 +12,14 @@ const customerSchema = new mongoose.Schema(
         image: String,
         description: String
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+        statics: {
+            findByHoiDanIt(name) {
+                return this.find({ name: "ookk" });
+            }
+        }
+    }
 );
 customerSchema.plugin(mongoose_delete, { overrideMethods: "all" });
 
