@@ -1,4 +1,5 @@
 const { uploadSingleFile } = require("../services/fileService");
+
 const { createCustomerService, createArrayCustomerService,
     getAllCustomersService, updateCustomerService, deleteCustomerService,
     deleteArrayCustomerService
@@ -41,7 +42,6 @@ const postCreatecustomerApi = async (req, res) => {
 
 }
 const postArrayCustomersApi = async (req, res) => {
-    console.log(">>> check data ar: ", req.body)
     let customers = await createArrayCustomerService(req.body.customers);
     if (customers) {
         return res.status(200).json(
@@ -60,7 +60,14 @@ const postArrayCustomersApi = async (req, res) => {
     }
 }
 const getAllCustomersApi = async (req, res) => {
-    let customers = await getAllCustomersService();
+    let { limit, page, name } = req.query;
+    let customers = null;
+    if (limit && page) {
+        customers = await getAllCustomersService(limit, page, name, req.query);
+    } else {
+        customers = await getAllCustomersService();
+    }
+
     if (customers) {
         return res.status(200).json(
             {
@@ -80,7 +87,6 @@ const getAllCustomersApi = async (req, res) => {
 const putUpdateCustomerApi = async (req, res) => {
     let customerUpdate = req.body;
     let results = await updateCustomerService(customerUpdate);
-    console.log(customerUpdate);
     return res.status(200).json(
         {
             EC: 0,

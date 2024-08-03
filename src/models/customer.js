@@ -14,11 +14,11 @@ const customerSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-        statics: {
-            findByHoiDanIt(name) {
-                return this.find({ name: "ookk" });
-            }
-        }
+        // statics: {
+        //     findByHoiDanIt(name) {
+        //         return this.find({ name: "ookk" });
+        //     }
+        // }
     }
 );
 customerSchema.plugin(mongoose_delete, { overrideMethods: "all" });
