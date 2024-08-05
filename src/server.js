@@ -6,6 +6,7 @@ const apiRoutes = require("./routes/api");
 const favicon = require('serve-favicon');
 const path = require("path");
 const connection = require("./config/database");
+const { MongoClient } = require('mongodb');
 const fileUpload = require('express-fileupload');
 require('dotenv').config();
 
@@ -38,7 +39,21 @@ app.use("/v1/api", apiRoutes);
 (async () => {
     // test connection
     try {
-        await connection();
+        //using mongoose
+        // await connection();
+
+        //using mongodb driver
+        const url = process.env.DB_HOST_WITH_DRIVER;
+        const client = new MongoClient(url);
+        // Database Name
+        const dbName = process.env.DB_NAME;
+
+        // Use connect method to connect to the server
+        await client.connect();
+        console.log('Connected successfully to server');
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+
         /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
         app.listen(port, hostname, () => {
             console.log(`Example app listening on port ${port}`);

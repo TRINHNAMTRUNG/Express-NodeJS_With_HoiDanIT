@@ -27,7 +27,7 @@ const createArrayCustomerService = async (arr) => {
     }
 }
 
-const getAllCustomersService = async (limit, page, name, queryString) => {
+const getAllCustomersService = async (limit, page, queryString) => {
     let results = null;
     let totalRow = 0;
     let totalPage = 0;

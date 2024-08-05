@@ -63,7 +63,7 @@ const getAllCustomersApi = async (req, res) => {
     let { limit, page, name } = req.query;
     let customers = null;
     if (limit && page) {
-        customers = await getAllCustomersService(limit, page, name, req.query);
+        customers = await getAllCustomersService(limit, page, req.query);
     } else {
         customers = await getAllCustomersService();
     }
