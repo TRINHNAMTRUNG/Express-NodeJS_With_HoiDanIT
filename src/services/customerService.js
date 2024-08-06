@@ -1,4 +1,5 @@
 const Customer = require("../models/customer");
+const Project = require("../models/project");
 const aqp = require('api-query-params');
 const createCustomerService = async (customerData) => {
     try {
@@ -91,7 +92,8 @@ const deleteArrayCustomerService = async (customersId) => {
         return null;
     }
 }
+
 module.exports = {
     createCustomerService, createArrayCustomerService, getAllCustomersService,
-    updateCustomerService, deleteCustomerService, deleteArrayCustomerService
+    updateCustomerService, deleteCustomerService, deleteArrayCustomerService,
 }

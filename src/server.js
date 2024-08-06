@@ -40,19 +40,21 @@ app.use("/v1/api", apiRoutes);
     // test connection
     try {
         //using mongoose
-        // await connection();
+        await connection();
 
-        //using mongodb driver
-        const url = process.env.DB_HOST_WITH_DRIVER;
-        const client = new MongoClient(url);
-        // Database Name
-        const dbName = process.env.DB_NAME;
+        // //using mongodb driver
+        // const url = process.env.DB_HOST_WITH_DRIVER;
+        // const client = new MongoClient(url);
+        // // Database Name
+        // const dbName = process.env.DB_NAME;
 
-        // Use connect method to connect to the server
-        await client.connect();
-        console.log('Connected successfully to server');
-        const db = client.db(dbName);
-        const collection = db.collection('documents');
+        // // Use connect method to connect to the server
+        // await client.connect();
+        // console.log('Connected successfully to server');
+        // const db = client.db(dbName);
+        // const collection = db.collection('customers');
+
+        // collection.insertOne({ name: "trinh nam trung" })
 
         /*Khởi động UNIX Socket và lắng nghe các kết nối trên các path*/
         app.listen(port, hostname, () => {

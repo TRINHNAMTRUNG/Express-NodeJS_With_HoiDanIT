@@ -2,7 +2,7 @@ const { uploadSingleFile } = require("../services/fileService");
 
 const { createCustomerService, createArrayCustomerService,
     getAllCustomersService, updateCustomerService, deleteCustomerService,
-    deleteArrayCustomerService
+    deleteArrayCustomerService, createProjectService
 } = require("../services/customerService");
 
 const postCreatecustomerApi = async (req, res) => {
@@ -117,5 +117,5 @@ const deleteArrayCustomersApi = async (req, res) => {
 
 module.exports = {
     postCreatecustomerApi, postArrayCustomersApi, getAllCustomersApi,
-    putUpdateCustomerApi, deleteCustomerApi, deleteArrayCustomersApi
+    putUpdateCustomerApi, deleteCustomerApi, deleteArrayCustomersApi,
 }
